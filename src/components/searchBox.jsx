@@ -1,18 +1,22 @@
 
+import { useDispatch } from "react-redux";
+import { selectContacts } from "../redux/filtersSlice";
 
 
-
-function SearchBox({ value, onSearch }) {
+function SearchBox() {
+    const dispatch = useDispatch()
     return (
         <>
             
             <h3>Find contact by name</h3>
             <input
                 type="text"
-                value={value}
+                
+                onChange={(event) => dispatch(selectContacts(event.target.value))}
+            
                 placeholder="Search contacts"
-            onChange={(event) => onSearch(event.target.value)}>
-                </input>
+            />
+               
         </>
     )
 }

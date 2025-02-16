@@ -4,6 +4,9 @@ import * as Yup from 'yup';
 import { nanoid } from 'nanoid/non-secure';
 import s from './IAmSoLazy.module.css'
 
+import { useDispatch } from "react-redux";
+import { addContact } from '../../redux/contactsSlice';
+
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
 
@@ -14,8 +17,14 @@ const FeedbackSchema = Yup.object().shape({
 
 
 
-function ContactForm({ onPlus }) {
+function ContactForm() {
   
+
+  const dispatch = useDispatch();
+
+
+
+
     const nameFieldId = useId();
     const phoneFieldId = useId();
 
@@ -24,21 +33,23 @@ function ContactForm({ onPlus }) {
     number: '',
   };
 
-    const handleSumbit = (values, actions) => {
-      onPlus({
-        id: nanoid(),
-        name: values.name,
-        number: values.number,
-      });
-      actions.resetForm();
+  const handleSubmit = (values, actions) => {
+    const newContact = {
+      id: nanoid(),
+      name: values.username,
+      number: values.phoneNumber,
     };
+
+    dispatch(addContact(newContact));
+    actions.resetForm();
+  };
 
     return (
 
       <Formik
         initialValues={ initialValues } 
         validationSchema={FeedbackSchema}
-        onSubmit={handleSumbit}
+        onSubmit={handleSubmit}
       >
 
         <Form >
