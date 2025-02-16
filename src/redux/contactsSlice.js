@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-  contacts: {
         items: [
           {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
           {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
@@ -11,7 +10,7 @@ const initialState = {
           {id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
         ]
 
-	}
+	
 }
 
 
@@ -33,8 +32,6 @@ const slice = createSlice({
     }
 })
 
-
-export const SliceReducers = slice.reducers;
+export const SliceReducers = slice.reducer;
 export const { addContact, deleteContact} = slice.actions;
 
- 
