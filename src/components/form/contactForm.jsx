@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid/non-secure';
 import s from './IAmSoLazy.module.css'
 
 import { useDispatch } from "react-redux";
-import { addContact } from '../../redux/contactsSlice';
+import {  addContacts } from '../../redux/contactsSlice';
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
@@ -40,7 +40,7 @@ function ContactForm() {
       number: values.phoneNumber,
     };
 
-    dispatch(addContact(newContact));
+    dispatch(addContacts(newContact));
     actions.resetForm();
   };
 
