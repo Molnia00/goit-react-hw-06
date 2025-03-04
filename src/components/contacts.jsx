@@ -16,9 +16,7 @@ function Contact({ id, name, number }) {
                 <p><BsFillTelephoneFill size="24" /> {number}</p>
             </div>
 
-            <button className={s.btnContactDelete} type="button"
-                >
-                Delete</button>
+            <button className={s.btnContactDelete} type="button"> Delete</button>
 
 
         </div>

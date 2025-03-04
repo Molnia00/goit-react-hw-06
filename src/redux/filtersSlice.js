@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStates = {
+const initialState = {
     name: "",
 }
 
 
 const slice = createSlice({
     name: 'contactsFilter',
-    initialStates,
-    reducers:{}
+    initialState,
+    reducers: {
+        searchItems: (state, action) => {
+        },
+    }
 })
     
 
 export const contactsFilterReducers = slice.reducer;
+export const {searchItems } = slice.actions;
