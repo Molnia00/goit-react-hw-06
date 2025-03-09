@@ -17,13 +17,14 @@ const slice = createSlice({
         addContacts: (state, action) => {
             state.items.push(action.payload)
         },
-        deleteContacts: (state) => {
-            state.items = state.items.filter(item => item.id !== item.paylod )
+        deleteContacts: (state, action) => {
+            state.items = state.items.filter(item => item.id !== action.payload )
         },
+        
     }
 })
     
 
 export const contactsReducers = slice.reducer;
 export const { addContacts, deleteContacts } = slice.actions;
-export const contSelect = state => state.contacts.items;
+export const contSelect = state => state.items.items;

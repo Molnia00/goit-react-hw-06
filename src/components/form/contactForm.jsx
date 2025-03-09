@@ -36,8 +36,8 @@ function ContactForm() {
   const handleSubmit = (values, actions) => {
     const newContact = {
       id: nanoid(),
-      name: values.username,
-      number: values.phoneNumber,
+      name: values.name,
+      number: values.number,
     };
 
     dispatch(addContacts(newContact));
