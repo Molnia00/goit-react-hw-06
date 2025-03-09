@@ -8,8 +8,8 @@ import { contFilter } from '../redux/filtersSlice';
 function ContactList() {
   const contacts = useSelector(contSelect);
   const filter = useSelector(contFilter)
-  const filteredData = contacts.filter(contact => contact.contact.includes(filter))
-  return (
+  const filteredData = contacts.filter(contact => contact.name.includes(filter))
+    return (
     <div className={s.listOfContacts}>
       {filteredData.map((item) => (
         <Contact
